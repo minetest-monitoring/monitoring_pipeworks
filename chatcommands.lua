@@ -42,3 +42,28 @@ minetest.register_chatcommand("pipeworks_disable", {
 		return true, "Pipeworks disabled"
 	end
 })
+
+minetest.register_chatcommand("pipeworks_check_limit", {
+	description = "checks if the injection limit is reached at the current position",
+	func = function(name)
+		local player = minetest.get_player_by_name(name)
+		local pos = player:get_pos()
+		local count = monitoring.pipeworks.inject_limiter_count(pos)
+		return true, "Count: " .. count .. " max: " .. monitoring.pipeworks.max_inject_items
+	end
+})
+
+minetest.register_chatcommand("pipeworks_limit_stats", {
+	description = "shows the chunk with the highest injection rate",
+	func = function()
+
+		local pos, count = monitoring.pipeworks.inject_limiter_max_pos()
+		local msg = "no stats available"
+		if pos then
+			msg = "Chunk: " .. minetest.pos_to_string(pos) .. " count: " .. count ..
+				" max: " .. monitoring.pipeworks.max_inject_items
+		end
+
+		return true, msg
+	end
+})

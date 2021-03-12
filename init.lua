@@ -10,7 +10,10 @@ monitoring.pipeworks = {
 	enabled = true,
 
 	-- 10 minutes item expiration
-	item_expiration_seconds = 10 * 60
+	item_expiration_seconds = 10 * 60,
+
+	-- only allow this many items per second per mapchunk
+	max_inject_items = 20
 }
 
 local MP = minetest.get_modpath("monitoring_pipeworks")
@@ -22,4 +25,5 @@ dofile(MP.."/filter_action_on.lua")
 dofile(MP.."/globalsteps.lua")
 dofile(MP.."/metrics.lua")
 dofile(MP.."/tube_inject_item.lua")
+dofile(MP.."/inject_limiter.lua")
 dofile(MP.."/chatcommands.lua")
