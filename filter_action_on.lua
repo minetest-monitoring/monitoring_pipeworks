@@ -5,18 +5,18 @@ function register_action_on_metric(nodename, metricname, prettyname)
 	local nodedef = minetest.registered_nodes[nodename]
 	if nodedef and nodedef.mesecons and nodedef.mesecons.effector and nodedef.mesecons.effector.action_on then
 		local metric_count = monitoring.counter(
-      "pipeworks_" .. metricname .. "_count",
-      "number of " .. prettyname .. " executes"
-    )
+		"pipeworks_" .. metricname .. "_count",
+		"number of " .. prettyname .. " executes"
+	)
 
-    local metric_time = monitoring.counter(
-      "pipeworks_" .. metricname .. "_time",
-      "total time of " .. prettyname .. " executes in us"
-    )
+	local metric_time = monitoring.counter(
+	"pipeworks_" .. metricname .. "_time",
+	"total time of " .. prettyname .. " executes in us"
+)
 
-		nodedef.mesecons.effector.action_on = metric_count.wrap( metric_time.wraptime(nodedef.mesecons.effector.action_on) )
+nodedef.mesecons.effector.action_on = metric_count.wrap( metric_time.wraptime(nodedef.mesecons.effector.action_on) )
 
-	end
+end
 end
 
 register_action_on_metric("pipeworks:mese_filter", "mese_filter", "Mese filter")

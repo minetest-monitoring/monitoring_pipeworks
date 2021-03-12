@@ -1,8 +1,8 @@
 if not minetest.get_modpath("pipeworks") then
-        print("[monitoring] pipeworks extension not loaded")
-        return
+	print("[monitoring] pipeworks extension not loaded")
+	return
 else
-        print("[monitoring] pipeworks extension loaded")
+	print("[monitoring] pipeworks extension loaded")
 end
 
 monitoring.pipeworks = {
