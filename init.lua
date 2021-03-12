@@ -6,13 +6,18 @@ else
 end
 
 monitoring.pipeworks = {
-  -- enable tubed item visuals
-  enable_visuals = true
+	-- global mod enabled flag
+	enabled = true,
+
+	-- 10 minutes item expiration
+	item_expiration_seconds = 10 * 60
 }
 
 local MP = minetest.get_modpath("monitoring_pipeworks")
 
 dofile(MP.."/entity_count.lua")
+dofile(MP.."/expiration.lua")
+dofile(MP.."/flush.lua")
 dofile(MP.."/filter_action_on.lua")
 dofile(MP.."/globalsteps.lua")
 dofile(MP.."/metrics.lua")

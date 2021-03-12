@@ -1,18 +1,20 @@
 
-# Monitoring extension for pipeworks
+Monitoring and management extensions for pipeworks
 
-Base-mod: https://github.com/thomasrudin-mt/monitoring
+Base-mod (optional): https://github.com/minetest-monitoring/monitoring
 
-# Metrics
+# Features
 
-* pipeworks_entity_count *count of pipeworks entities*
+* Tubed item management (flushing)
+* Enable and disable pipeworks at runtime
+* Item expiration (tubed items only stay 10 minutes in the pipes)
 
 # Chatcommands
 
 * **/pipeworks_flush** flushes (removes) all items in the tubes
 * **/pipeworks_stats** shows the item count
-* **/pipeworks_enable_visuals** enables visuals
-* **/pipeworks_disable_visuals** disables visuals
+* **/pipeworks_enable** enables the pipeworks mod at runtime
+* **/pipeworks_disable** disables the pieworks mod at runtime
 
 # License
 
