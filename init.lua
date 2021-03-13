@@ -13,7 +13,7 @@ monitoring.pipeworks = {
 	item_expiration_seconds = 10 * 60,
 
 	-- only allow this many items per second per mapchunk
-	max_inject_items = 20
+	max_inject_items = 100
 }
 
 local MP = minetest.get_modpath("monitoring_pipeworks")
