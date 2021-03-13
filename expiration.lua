@@ -31,4 +31,4 @@ local function cleanup()
 end
 
 -- start initial cleanup after 10 minutes
-minetest.after(600, cleanup)
+minetest.after(monitoring.pipeworks.item_expiration_seconds, cleanup)
